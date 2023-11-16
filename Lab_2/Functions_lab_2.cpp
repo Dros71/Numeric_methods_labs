@@ -1,5 +1,5 @@
 #include "Functions_lab_2.h"
-
+// -*- coding: utf-8 -*-
 double func_1(double x1, double x2) {
     return (1.5 * pow(x1, 3) - x2 * x2 - 1);
 }
