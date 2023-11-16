@@ -1,4 +1,4 @@
-#include "Gauss_Function.h"
+п»ї#include "Gauss_Function.h"
 // -*- coding: utf-8 -*-
 void OutputMatrix(double** Matrix, double* B, int n)
 {
@@ -37,7 +37,7 @@ void CheckBefore(double** Matrix, double* B, int i, int n)
 void DoTheXnOne(double** Matrix, double* B, int k, int n)
 {
     CheckBefore(Matrix, B, k, n);
-    double Divider = Matrix[k][k]; //Делитель
+    double Divider = Matrix[k][k]; //Р”РµР»РёС‚РµР»СЊ
     for (int i = 0; i < n; i++)
         Matrix[k][i] /= Divider;
     B[k] /= Divider;

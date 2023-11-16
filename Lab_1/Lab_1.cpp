@@ -1,7 +1,7 @@
-ï»¿#include "Functions_lab_1.h"
+#include "Functions_lab_1.h"
 int main()
 {
-    //Ğ˜Ğ½Ğ¸Ñ†Ğ¸Ğ°Ğ»Ğ¸Ğ·Ğ°Ñ†Ğ¸Ñ
+    //Èíèöèàëèçàöèÿ
     srand(time(NULL));
     setlocale(LC_ALL, "");
     ifstream OpenFile;
@@ -18,20 +18,20 @@ int main()
     double* StartB = new double[n];
     Input(OpenFile, Matrix, StartMatrix, B, StartB, n);
 
-    cout << "1) ĞœĞ°Ñ‚Ñ€Ğ¸Ñ†Ğ° ÑĞ½Ğ°Ñ‡Ğ°Ğ»Ğ°: " << endl << setprecision(7);
+    cout << "1) Ìàòğèöà ñíà÷àëà: " << endl << setprecision(7);
     OutputMatrix(Matrix, B, n);
-    //Ğ’Ğ½Ğ¸Ğ·Ğ·Ğ·Ğ·Ğ·
+    //Âíèççççç
     Gauss(Matrix, B, n);
-    cout << "ĞœĞ°Ñ‚Ñ€Ğ¸Ñ†Ğ° Ğ¿Ğ¾ÑĞ»Ğµ: " << endl;
+    cout << "Ìàòğèöà ïîñëå: " << endl;
     OutputMatrix(Matrix, B, n);
-    //Ğ’Ğ²ĞµÑ€Ñ…Ñ…Ñ…Ñ…
-    cout << "ĞĞ¢Ğ’Ğ•Ğ¢:" << setw(10) << endl;
+    //Ââåğõõõõ
+    cout << "ÎÒÂÅÒ:" << setw(10) << endl;
     double* Answer = new double[n];
     FindTheAnswer(Matrix, B, Answer, n);
     for (int i = 0; i < n; i++)
         cout << "x[" << i + 1 << "] = " << Answer[i] << setw(10) << endl;
 
-    // Ğ§Ğ°ÑÑ‚ÑŒ 2
+    // ×àñòü 2
     double* F = new double[n];
     for (int i = 0; i < n; i++)
     {
@@ -42,16 +42,16 @@ int main()
         }
         F[i] = StartB[i] - tmp;
     }
-    cout << "Ğ’ĞµĞºÑ‚Ğ¾Ñ€ Ğ½ĞµĞ²ÑĞ·ĞºĞ¸ :" << setw(10) << endl;
+    cout << "Âåêòîğ íåâÿçêè :" << setw(10) << endl;
     for (int i = 0; i < n; i++)
         cout << "F[" << i + 1 << "] = " << F[i] << setw(10) << endl;
 
     double norm = F[0];
     for (int i = 1; i < n; i++)
         norm = max(fabs(norm), fabs(F[i]));
-    cout << setw(-10) << endl << "2) ĞĞĞ ĞœĞ: " << norm << endl;
+    cout << setw(-10) << endl << "2) ÍÎĞÌÀ: " << norm << endl;
 
-    //Ğ§Ğ°ÑÑ‚ÑŒ 3
+    //×àñòü 3
     double* NewB = new double[n];
     for (int i = 0; i < n; i++) {
         double tmp = 0;
@@ -71,7 +71,7 @@ int main()
     for (int i = 0; i < n; i++)
         if (deltamax < abs(Answer2[i] - Answer[i]) / abs(Answer[i]))
             deltamax = abs(Answer2[i] - Answer[i]) / abs(Answer[i]);
-    cout << endl << "3) ĞĞ¢ĞĞĞ¡Ğ˜Ğ¢Ğ•Ğ›Ğ¬ĞĞĞ¯ ĞŸĞĞ“Ğ Ğ•Ğ¨ĞĞĞ¡Ğ¢Ğ¬: " << deltamax << endl;
+    cout << endl << "3) ÎÒÍÎÑÈÒÅËÜÍÀß ÏÎÃĞÅØÍÎÑÒÜ: " << deltamax << endl;
 
     FreeMemory(Matrix, StartMatrix, B, StartB, NewB, Answer, Answer2, F, n);
 }
