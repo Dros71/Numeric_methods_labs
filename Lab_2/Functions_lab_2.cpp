@@ -1,5 +1,5 @@
 ﻿#include "Functions_lab_2.h"
-// -*- coding: utf-8 -*-
+
 double func_1(double x1, double x2) {
     return (1.5 * pow(x1, 3) - x2 * x2 - 1);
 }
@@ -80,7 +80,7 @@ int Newton(double x1, double x2, double M, bool flag) {
             cout << "delta(2) = " << delta_2 << endl << endl;
         }
         k++;
-    } while (delta_1 >= eps && delta_2 >= eps);
+    } while (delta_1 >= eps || delta_2 >= eps);
     if (print) {
         cout << "ОТВЕТ:" << endl;
         cout << "x1 = " << setprecision(20) << X[0] << endl;
