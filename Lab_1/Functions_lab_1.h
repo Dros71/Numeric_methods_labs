@@ -1,3 +1,4 @@
+#pragma once
 #include"Gauss_Function.h"
 #include <iostream>
 #include <cmath>
