@@ -1,4 +1,4 @@
-#include "Functions_lab_2.h"
+п»ї#include "Functions_lab_2.h"
 // -*- coding: utf-8 -*-
 double func_1(double x1, double x2) {
     return (1.5 * pow(x1, 3) - x2 * x2 - 1);
@@ -8,7 +8,7 @@ double func_2(double x1, double x2) {
     return (x1 * pow(x2, 3) - x2 - 4);
 }
 
-double* residual_vector(double x1, double x2) {                //Вектор невязки
+double* residual_vector(double x1, double x2) {                //Р’РµРєС‚РѕСЂ РЅРµРІСЏР·РєРё
     double* vect = new double[2];
     vect[0] = -func_1(x1, x2);
     vect[1] = -func_2(x1, x2);
@@ -37,8 +37,8 @@ double** jacobiStrange(double x1, double x2, double M) {
 
 int Newton(double x1, double x2, double M, bool flag) {
     bool print = 1;
-    cout << "Нажмите 0, если нужно получить только k, и 1, чтобы показать вычисления ";
-    cin >> print;                                   // Проверка на ввод..?
+    cout << "РќР°Р¶РјРёС‚Рµ 0, РµСЃР»Рё РЅСѓР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ С‚РѕР»СЊРєРѕ k, Рё 1, С‡С‚РѕР±С‹ РїРѕРєР°Р·Р°С‚СЊ РІС‹С‡РёСЃР»РµРЅРёСЏ ";
+    cin >> print;                                   // РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ..?
 
     double** Jacobi = new double* [n];
     for (int i = 0; i < n; i++) {
@@ -57,13 +57,13 @@ int Newton(double x1, double x2, double M, bool flag) {
         }
         delta_2 = delta_1 = 0;
         if (print)
-            cout << setw(10) << "Шаг " << k << endl << setw(-10) << "x1(" << k << ") = " << X[0] << endl << "x2(" << k << ") = " << X[1] << endl;
+            cout << setw(10) << "РЁР°Рі " << k << endl << setw(-10) << "x1(" << k << ") = " << X[0] << endl << "x2(" << k << ") = " << X[1] << endl;
         if (flag)
             Jacobi = jacobiStrange(X[0], X[1], M);
-        else Jacobi = jacobi(X[0], X[1]);               // Матрица Якоби. Способ 1
-        F = residual_vector(X[0], X[1]);                // Вектор невязки F
-        Gauss(Jacobi, F, n);                                  // Прямой ход по Гасусу. Резульат в Jacobi и F
-        FindTheAnswer(Jacobi, F, Ans, n);                     // Обратный ход по Гаусу. Нашли (delta)x(k) и занесли результат в Ans
+        else Jacobi = jacobi(X[0], X[1]);               // РњР°С‚СЂРёС†Р° РЇРєРѕР±Рё. РЎРїРѕСЃРѕР± 1
+        F = residual_vector(X[0], X[1]);                // Р’РµРєС‚РѕСЂ РЅРµРІСЏР·РєРё F
+        Gauss(Jacobi, F, n);                                  // РџСЂСЏРјРѕР№ С…РѕРґ РїРѕ Р“Р°СЃСѓСЃСѓ. Р РµР·СѓР»СЊР°С‚ РІ Jacobi Рё F
+        FindTheAnswer(Jacobi, F, Ans, n);                     // РћР±СЂР°С‚РЅС‹Р№ С…РѕРґ РїРѕ Р“Р°СѓСЃСѓ. РќР°С€Р»Рё (delta)x(k) Рё Р·Р°РЅРµСЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РІ Ans
 
         X[0] += Ans[0];                                       // x(k+1) = x(k) + (delta)x(k)
         X[1] += Ans[1];
@@ -82,7 +82,7 @@ int Newton(double x1, double x2, double M, bool flag) {
         k++;
     } while (delta_1 >= eps && delta_2 >= eps);
     if (print) {
-        cout << "ОТВЕТ:" << endl;
+        cout << "РћРўР’Р•Рў:" << endl;
         cout << "x1 = " << setprecision(20) << X[0] << endl;
         cout << "x2 = " << X[1] << setprecision(-20) << endl;
     }
