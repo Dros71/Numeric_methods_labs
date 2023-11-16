@@ -38,7 +38,7 @@ double** jacobiStrange(double x1, double x2, double M) {
 int Newton(double x1, double x2, double M, bool flag) {
     bool print = 1;
     cout << "Нажмите 0, если нужно получить только k, и 1, чтобы показать вычисления ";
-    cin >> print;                       // Проверка на ввод..?
+    cin >> print;                                   // Проверка на ввод..?
 
     double** Jacobi = new double* [n];
     for (int i = 0; i < n; i++) {
