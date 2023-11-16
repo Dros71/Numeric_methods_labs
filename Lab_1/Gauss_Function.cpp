@@ -1,5 +1,5 @@
 #include "Gauss_Function.h"
-
+// -*- coding: utf-8 -*-
 void OutputMatrix(double** Matrix, double* B, int n)
 {
     for (int i = 0; i < n; i++)
