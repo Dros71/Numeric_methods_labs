@@ -11,4 +11,4 @@ const int n = 100;
 double function_value(double);
 double trapezoid_method();
 double Simpsons_method();
-double Simpsons_cubaturn();
+//double Simpsons_cubaturn();

@@ -6,16 +6,17 @@ double function_value(double x) {
 
 double trapezoid_method() {
 	double h = (b - a) / n;
-	double integral_trapezoid = ((a + b) * h )/ 2;
+	double integral_trapezoid_h = (function_value(a) + function_value(b) * h) / 2;
+	double integral_trapezoid_h2 = (function_value(a) + function_value(b) * h / 2) / 2;
 	double x = a;
-	for (double i = 1; i < n; i++) {
-		x += h;
-		double integral_part = h * function_value(x);
-		double integral_part = h * function_value(x - h / 2);
-
-		//integral_trapezoid +=
+	while (integral_trapezoid_h2 - integral_trapezoid_h > (3 * eps1)){
+		integral_trapezoid_h = integral_trapezoid_h2;
+		h /= 2;
+		for (double x = a; x <= b; x += h / 2)
+		integral_trapezoid_h2 = h * function_value(x);
+		cout << "Hello" << '\n';
 	}
-	return integral_trapezoid;
+	return integral_trapezoid_h2;
 }
 
 double Simpsons_method() {
