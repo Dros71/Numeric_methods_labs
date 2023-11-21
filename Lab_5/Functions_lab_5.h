@@ -10,6 +10,6 @@ const int n = 2;
 
 
 double function_value(double);
-double trapezoid_method();
-double Simpsons_method();
+double trapezoid_method(double);
+double Simpsons_method(double);
 //double Simpsons_cubaturn();
