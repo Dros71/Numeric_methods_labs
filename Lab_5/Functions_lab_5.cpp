@@ -6,7 +6,7 @@ double function_1_value(double x) {
 double function_2_value(double x, double y) {	
 	return ((x * x) / (1 + y * y));
 }
-double trapezoid_method(double eps) {
+double trapezoid_method(double eps, double& R) {
 	double h = (b - a) / n;
 	double integral_trapezoid_h = 0;
 	double integral_trapezoid_h2 = 0;
@@ -17,10 +17,11 @@ double trapezoid_method(double eps) {
 		for (double x = a + h; x < b; x += h)
 			integral_trapezoid_h2 += h * function_1_value(x);
 	} while (fabs(integral_trapezoid_h2 - integral_trapezoid_h) >= (3 * eps));
+	R = (integral_trapezoid_h - integral_trapezoid_h2) * (0,5 * 0,5 - 1);
 	return integral_trapezoid_h2;
 }
 
-double Simpsons_method(double eps) {
+double Simpsons_method(double eps, double& R) {
 	double h = (b - a) / n;
 	int m = n / 2;
 	double integral_Simpsons_h = 0;
@@ -41,14 +42,15 @@ double Simpsons_method(double eps) {
 		h /= 2;
 		m *= 2;
 	} while (fabs(integral_Simpsons_h2 - integral_Simpsons_h) >= (15 * eps));
+	R = (integral_Simpsons_h - integral_Simpsons_h2) * (0,5 * 0,5 * 0,5 * 0,5 - 1);
 	return integral_Simpsons_h2;
 }
 
-double Simpsons_cubaturn() {							// Using the formula to calculate the integral as in the book
+double Simpsons_cubaturn() {		// Using the formula to calculate the integral as in the book
 	double hx = (b_2 - a_2) / 2;
 	double hy = (d - c) / 2;
 	double integral_Simpsons_cubaturn = 0;
-	integral_Simpsons_cubaturn += function_2_value(a_2 , c) + 4 * function_2_value(a_2 + hx, c) +
+	integral_Simpsons_cubaturn += function_2_value(a_2 , c) + 4 * function_2_value(a_2 + hx, c) +	//127 
 		function_2_value(b_2, c ) + 4 * function_2_value(a_2, c + hy) +
 		16 * function_2_value(a_2 + hx, c + hy) + 4 * function_2_value(b_2 , c + hy) +
 		function_2_value(a_2 , d) + 4 * function_2_value(a_2 + hx, d) +
