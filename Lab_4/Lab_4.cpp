@@ -2,13 +2,16 @@
 
 int main()
 {
-    for (int i = 0; i < n; i++) {
-        cout << " h =" << H[i] << ". eta = " << Eta[i] << endl;
-    }
-    double* A = new double[n];
-    A = Least_square_method();
-    for (int i = 0; i < n; i++)
-        cout << "a[" << i << "] = " << A[i] << endl;
+    for (int i = 0; i < n; i++) 
+        cout << " x =" << x[i] << ". y = " << y[i] << endl;
+    cout << endl;
+    double* A = new double[m + 1];
+    least_square_method(A);
+    cout << "a = " << A[0] << endl;
+    cout << "b = " << A[1] << endl;
+    double eps = Count_eps(A);
+    cout << "eps = " << eps << endl;
+    cout << "Answer: " << "y = " << A[1] << "/x + " << A[0];
 }
 
 

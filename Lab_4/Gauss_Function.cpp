@@ -35,7 +35,7 @@ void CheckBefore(double** Matrix, double* B, int i, int n)
 }
 void DoTheXnOne(double** Matrix, double* B, int k, int n)
 {
-   //CheckBefore(Matrix, B, k, n);      //Doesn't work in my case :(
+    CheckBefore(Matrix, B, k, n);
     double Divider = Matrix[k][k]; 
     for (int i = 0; i < n; i++)
         Matrix[k][i] /= Divider;
