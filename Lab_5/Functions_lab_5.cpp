@@ -47,14 +47,16 @@ double Simpsons_method(double eps, double& R) {
 }
 
 double Simpsons_cubaturn() {		// Using the formula to calculate the integral as in the book
-	double hx = (b_2 - a_2) / 2;
-	double hy = (d - c) / 2;
+	double hx = (b_2 - a_2) / (2 * N);
+	double hy = (d - c) / (2 * M);
 	double integral_Simpsons_cubaturn = 0;
-	integral_Simpsons_cubaturn += function_2_value(a_2 , c) + 4 * function_2_value(a_2 + hx, c) +	//127 
-		function_2_value(b_2, c ) + 4 * function_2_value(a_2, c + hy) +
-		16 * function_2_value(a_2 + hx, c + hy) + 4 * function_2_value(b_2 , c + hy) +
-		function_2_value(a_2 , d) + 4 * function_2_value(a_2 + hx, d) +
-		function_2_value(b_2 , d);
+	for (int i = 0; i <= N - 1; i++)
+		for(int j = 0; j <= M - 1; j++)
+		integral_Simpsons_cubaturn += function_2_value(a_2 , c) + 4 * function_2_value(a_2 + hx, c) +	//127 
+			function_2_value(b_2, c ) + 4 * function_2_value(a_2, c + hy) +
+			16 * function_2_value(a_2 + hx, c + hy) + 4 * function_2_value(b_2 , c + hy) +
+			function_2_value(a_2 , d) + 4 * function_2_value(a_2 + hx, d) +
+			function_2_value(b_2 , d);
 	integral_Simpsons_cubaturn *= (hx * hy) / 9;
 	return integral_Simpsons_cubaturn;
 }

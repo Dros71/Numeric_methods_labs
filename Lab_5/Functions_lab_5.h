@@ -9,6 +9,7 @@ const double a_2 = 0;	const double b_2 = 4.0;
 const double c = 1.0;	const double d = 2.0;
 const double eps1 = 1e-4; const double eps2 = 1e-5;
 const int n = 2;
+const int M = 1, N = 1;		//number of splits (N for Ox, M for Oy)
 
 
 double function_1_value(double);
